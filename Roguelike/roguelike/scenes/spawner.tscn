@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2k5id6hd4ia4"]
+
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_r7et6"]
+[ext_resource type="PackedScene" uid="uid://d24p5dnquj44s" path="res://scenes/enemy.tscn" id="2_1owh6"]
+[ext_resource type="Script" path="res://scripts/EnemyType.gd" id="3_ko8y0"]
+[ext_resource type="Resource" uid="uid://caob47rave1lb" path="res://Resources/Slime.tres" id="4_q2o5l"]
+[ext_resource type="Resource" uid="uid://dcf2bnviq16oy" path="res://Resources/Goblin.tres" id="5_610kv"]
+[ext_resource type="Resource" uid="uid://do8rqdp78sftr" path="res://Resources/Bird.tres" id="6_l0e0q"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_r7et6")
+enemy = ExtResource("2_1owh6")
+enemy_types = Array[ExtResource("3_ko8y0")]([ExtResource("4_q2o5l"), ExtResource("5_610kv"), ExtResource("6_l0e0q")])
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+offset_left = 579.0
+offset_top = 18.0
+offset_right = 621.0
+offset_bottom = 58.0
+
+[node name="Minute" type="Label" parent="UI/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Label2" type="Label" parent="UI/HBoxContainer"]
+layout_mode = 2
+text = ":"
+
+[node name="Second" type="Label" parent="UI/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Pattern" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Elite" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Pattern" to="." method="_on_pattern_timeout"]

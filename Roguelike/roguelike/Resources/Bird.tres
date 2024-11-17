@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://do8rqdp78sftr"]
+
+[ext_resource type="Script" path="res://scripts/EnemyType.gd" id="1_2f3kx"]
+[ext_resource type="Texture2D" uid="uid://bp0ulliv7hfhx" path="res://assets/enemies/flying creature/fly_anim_f1.png" id="2_0ygxa"]
+
+[resource]
+script = ExtResource("1_2f3kx")
+title = "Bird"
+texture = ExtResource("2_0ygxa")
+health = 0.0
+damage = 5.0
