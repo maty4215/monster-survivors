@@ -1,0 +1,138 @@
+[gd_scene load_steps=17 format=3 uid="uid://dokhtqypvmu8p"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_y84nw"]
+[ext_resource type="PackedScene" uid="uid://bc777y7w8bwrx" path="res://scenes/slot.tscn" id="2_2ne47"]
+[ext_resource type="Texture2D" uid="uid://8midy18pod8d" path="res://assets/Player/Eleonore/Idle/Eleonore.png" id="2_p1aty"]
+[ext_resource type="Resource" uid="uid://cyikitht8h0oe" path="res://Resources/Weapons/Magic Wand.tres" id="3_ypbdg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64r43"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o7ar"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1fxv"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52306"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqnm6"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajqh0"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6p6h"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h6jw"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82drg"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbugt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64r43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o7ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1fxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52306")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqnm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajqh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6p6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h6jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82drg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yx2yk"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_so2os"]
+radius = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_y84nw")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Weapons" type="HBoxContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot" parent="UI/Weapons" instance=ExtResource("2_2ne47")]
+layout_mode = 2
+weapon = ExtResource("3_ypbdg")
+
+[node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_2ne47")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_2ne47")]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.822266, 0.822266)
+sprite_frames = SubResource("SpriteFrames_nbugt")
+autoplay = "default"
+frame_progress = 0.988095
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yx2yk")
+
+[node name="SelfDamage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="SelfDamage"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_so2os")
+
+[node name="Health" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+z_index = 2
+offset_left = -47.0
+offset_top = -170.0
+offset_right = 48.0
+offset_bottom = -143.0
+step = 1.0
+value = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
