@@ -11,7 +11,10 @@ Hráč musí do určité časového limitu (ještě není určeno) přežít vln
 Hra využívá minimalistické 2D grafiku s jednoduchým pixelartovým stylem. Všechny assety použity ve hře nejsou vyrobené mnou.
 
 ### Credit
-Protředí: https://free-game-assets.itch.io/free-low-level-monsters-pixel-icons-3232?download
+Nepřátelé: https://free-game-assets.itch.io/free-low-level-monsters-pixel-icons-3232?download
 <br>
 Vzhled postavy: https://otsoga.itch.io/free-medieval-npcs-witch-and-swordswoman
 
+## Zvuky
+
+V aktuální verzi Monster Survivors jsem vytvořil všechny základní zvukový efekty pomocí Audacity. Plánuji postupně přidávat další zvuky.
