@@ -10,7 +10,6 @@ Hráč musí do určité časového limitu (ještě není určeno) přežít vln
 
 Hra využívá minimalistické 2D grafiku s jednoduchým pixelartovým stylem. Všechny assety použity ve hře nejsou vyrobené mnou.
 
-[Protředí]: (https://free-game-assets.itch.io/free-low-level-monsters-pixel-icons-3232?download) 
-[Vzhled postavy]: (https://otsoga.itch.io/free-medieval-npcs-witch-and-swordswoman)
-
+[Protředí]: (https://free-game-assets.itch.io/free-low-level-monsters-pixel-icons-3232?download') 
+[Vzhled postavy]: (https://otsoga.itch.io/free-medieval-npcs-witch-and-swordswoman')
 
