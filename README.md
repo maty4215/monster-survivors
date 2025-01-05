@@ -12,5 +12,6 @@ Hra využívá minimalistické 2D grafiku s jednoduchým pixelartovým stylem. V
 
 ### Credit
 Protředí: https://free-game-assets.itch.io/free-low-level-monsters-pixel-icons-3232?download
+<br>
 Vzhled postavy: https://otsoga.itch.io/free-medieval-npcs-witch-and-swordswoman
 
