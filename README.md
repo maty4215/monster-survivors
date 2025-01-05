@@ -17,4 +17,4 @@ Vzhled postavy: https://otsoga.itch.io/free-medieval-npcs-witch-and-swordswoman
 
 ## Zvuky
 
-V aktuální verzi Monster Survivors jsem vytvořil všechny základní zvukový efekty pomocí Audacity. Plánuji postupně přidávat další zvuky.
+V aktuální verzi Monster Survivors jsem vytvořil všechny základní zvukový efekty pomocí Audacity. Plánuji postupem vývoje hry přidávat další zvuky.
