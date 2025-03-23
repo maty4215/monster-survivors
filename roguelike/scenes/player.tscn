@@ -1,0 +1,271 @@
+[gd_scene load_steps=29 format=3 uid="uid://dokhtqypvmu8p"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_y84nw"]
+[ext_resource type="PackedScene" uid="uid://bc777y7w8bwrx" path="res://scenes/slot.tscn" id="2_2ne47"]
+[ext_resource type="Texture2D" uid="uid://8midy18pod8d" path="res://assets/Player/Eleonore/Idle/Eleonore.png" id="2_p1aty"]
+[ext_resource type="Texture2D" uid="uid://ctcrwub02vpnn" path="res://assets/Gem/Blue Gem.png" id="2_rj3h3"]
+[ext_resource type="Texture2D" uid="uid://ceha66lnl4le3" path="res://assets/GUI bg.png" id="3_4rx36"]
+[ext_resource type="Resource" uid="uid://cyikitht8h0oe" path="res://Resources/Weapons/Magic Wand.tres" id="3_ypbdg"]
+[ext_resource type="Texture2D" uid="uid://bd3d4d7mffvk2" path="res://assets/XP bar/Under.png" id="4_e1gp7"]
+[ext_resource type="PackedScene" uid="uid://v5p7fxc8xcp7" path="res://scenes/passive_slot.tscn" id="5_14hyp"]
+[ext_resource type="Texture2D" uid="uid://cbxm601858h51" path="res://assets/XP bar/Progress.png" id="5_g0my7"]
+[ext_resource type="Script" path="res://scripts/option.gd" id="6_oieev"]
+[ext_resource type="Resource" uid="uid://deumq0l56akr7" path="res://Resources/Passive Items/Magnet.tres" id="7_n5r47"]
+[ext_resource type="AudioStream" uid="uid://dcqwigc5l6o5j" path="res://assets/SFX/level up.mp3" id="10_5iqs0"]
+
+[sub_resource type="Gradient" id="Gradient_22e33"]
+offsets = PackedFloat32Array(0, 0.774038, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.355769, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t7jpq"]
+gradient = SubResource("Gradient_22e33")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xccwp"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(320, 1, 1)
+angle_min = -230.0
+angle_max = 203.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.8
+color_ramp = SubResource("GradientTexture1D_t7jpq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64r43"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o7ar"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1fxv"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52306"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqnm6"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajqh0"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6p6h"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h6jw"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82drg"]
+atlas = ExtResource("2_p1aty")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbugt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64r43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o7ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1fxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52306")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqnm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajqh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6p6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h6jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82drg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yx2yk"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_so2os"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68f7c"]
+radius = 50.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_y84nw")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Particle" type="GPUParticles2D" parent="UI"]
+process_mode = 3
+position = Vector2(320, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_xccwp")
+texture = ExtResource("2_rj3h3")
+lifetime = 1.5
+
+[node name="Panel" type="NinePatchRect" parent="UI"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -109.0
+offset_right = 181.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4rx36")
+region_rect = Rect2(3.97788, 3.98706, 40.0034, 24.9975)
+
+[node name="Label" type="Label" parent="UI/Panel"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 18.0
+offset_right = 216.0
+offset_bottom = 41.0
+text = "LEVEL UP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapons" type="HBoxContainer" parent="UI"]
+offset_left = 9.0
+offset_top = 27.0
+offset_right = 137.0
+offset_bottom = 67.0
+
+[node name="Slot" parent="UI/Weapons" instance=ExtResource("2_2ne47")]
+layout_mode = 2
+item = ExtResource("3_ypbdg")
+
+[node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_2ne47")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_2ne47")]
+layout_mode = 2
+
+[node name="PassiveItems" type="HBoxContainer" parent="UI"]
+offset_left = 9.0
+offset_top = 70.0
+offset_right = 137.0
+offset_bottom = 110.0
+
+[node name="PassiveSlot" parent="UI/PassiveItems" instance=ExtResource("5_14hyp")]
+layout_mode = 2
+item = ExtResource("7_n5r47")
+
+[node name="PassiveSlot2" parent="UI/PassiveItems" instance=ExtResource("5_14hyp")]
+layout_mode = 2
+
+[node name="PassiveSlot3" parent="UI/PassiveItems" instance=ExtResource("5_14hyp")]
+layout_mode = 2
+
+[node name="XP" type="TextureProgressBar" parent="UI"]
+unique_name_in_owner = true
+offset_right = 640.0
+offset_bottom = 40.0
+max_value = 50.0
+texture_under = ExtResource("4_e1gp7")
+texture_progress = ExtResource("5_g0my7")
+
+[node name="Level" type="Label" parent="UI/XP"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 591.0
+offset_top = 18.0
+offset_right = 629.0
+offset_bottom = 41.0
+text = "Lv 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level up" type="AudioStreamPlayer2D" parent="UI/XP"]
+stream = ExtResource("10_5iqs0")
+volume_db = -5.0
+
+[node name="Option" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "passive_items", "particles", "panel")]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_oieev")
+weapons = NodePath("../Weapons")
+passive_items = NodePath("../PassiveItems")
+particles = NodePath("../Particle")
+panel = NodePath("../Panel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.822266, 0.822266)
+sprite_frames = SubResource("SpriteFrames_nbugt")
+autoplay = "default"
+frame_progress = 0.988095
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yx2yk")
+
+[node name="SelfDamage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="SelfDamage"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_so2os")
+
+[node name="Health" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+z_index = 2
+offset_left = -47.0
+offset_top = -152.0
+offset_right = 48.0
+offset_bottom = -125.0
+step = 1.0
+value = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Magnet" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Magnet" type="CollisionShape2D" parent="Magnet"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_68f7c")
+
+[connection signal="gui_input" from="UI/Option" to="." method="_on_option_gui_input"]
+[connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]
