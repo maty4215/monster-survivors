@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dcf2bnviq16oy"]
+
+[ext_resource type="Script" path="res://scripts/EnemyType.gd" id="1_8ejxw"]
+[ext_resource type="Script" path="res://scripts/PickupResource.gd" id="1_ip0k5"]
+[ext_resource type="Resource" uid="uid://brsod75ck6xh0" path="res://Resources/Pickups/Blue Gem.tres" id="2_n53s0"]
+[ext_resource type="Texture2D" uid="uid://lpybognh5kyr" path="res://assets/enemies/Icon25.png" id="2_ruh13"]
+
+[resource]
+script = ExtResource("1_8ejxw")
+title = "Goblin"
+texture = ExtResource("2_ruh13")
+health = 12.0
+damage = 4.0
+drops = Array[ExtResource("1_ip0k5")]([ExtResource("2_n53s0")])

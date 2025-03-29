@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://yqlcady15bk6"]
+
+[ext_resource type="AudioStream" uid="uid://p0fbw0nmv3db" path="res://assets/SFX/Age of War - Theme Soundtrack.mp3" id="1_0eyc0"]
+
+[node name="BG music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_0eyc0")
+volume_db = -10.0
+autoplay = true

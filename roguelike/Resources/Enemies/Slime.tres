@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://caob47rave1lb"]
+
+[ext_resource type="Script" path="res://scripts/EnemyType.gd" id="1_58tv0"]
+[ext_resource type="Script" path="res://scripts/PickupResource.gd" id="1_rq2xh"]
+[ext_resource type="Texture2D" uid="uid://d1pmm5cl6hqt" path="res://assets/enemies/Icon38.png" id="2_4qexj"]
+[ext_resource type="Resource" uid="uid://brsod75ck6xh0" path="res://Resources/Pickups/Blue Gem.tres" id="2_wfssd"]
+
+[resource]
+script = ExtResource("1_58tv0")
+title = "Slime"
+texture = ExtResource("2_4qexj")
+health = 6.0
+damage = 1.0
+drops = Array[ExtResource("1_rq2xh")]([ExtResource("2_wfssd")])
