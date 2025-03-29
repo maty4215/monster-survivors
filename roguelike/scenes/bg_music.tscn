@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://yqlcady15bk6"]
-
-[ext_resource type="AudioStream" uid="uid://bbegli57bul5m" path="res://assets/SFX/background music.mp3" id="1_ufjay"]
-
-[node name="BG music" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_ufjay")
-volume_db = -5.0
-autoplay = true
