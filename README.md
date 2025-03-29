@@ -57,7 +57,9 @@ Pro propagaci hry bude vytvořen trailer, který představí herní mechanismy a
 Finální verze hry „Monster Survivors“ nabízí kompletní herní zážitek s vyváženou obtížností a dynamickým vývojem postavy.
 
 ![screenshot1](https://github.com/user-attachments/assets/2903192c-3e52-4ccb-882d-2708fa1ae4d9)
-![image](https://github.com/user-attachments/assets/74610e18-76e9-4f18-ab9a-01e8d77fa5ab)
+![upgrade](https://github.com/user-attachments/assets/74610e18-76e9-4f18-ab9a-01e8d77fa5ab)
+![menu](https://github.com/user-attachments/assets/7c934b03-a6cd-4c3b-8196-d0c07f0cf5fe)
+
 
 
 ## 9. Závěr
